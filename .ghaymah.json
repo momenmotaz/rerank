@@ -1,0 +1,21 @@
+{
+  "id": "c738fbfb-24f4-416f-b7cd-71550708ff08",
+  "name": "reranker-service",
+  "projectId": "5526a6f5-268c-47a4-8b74-c2f08f918ed9",
+  "ports": [
+    {
+      "expose": true,
+      "number": 4000
+    }
+  ],
+  "publicAccess": {
+    "enabled": true,
+    "domain": "auto"
+  },
+  "resourceTier": "t6",
+  "dockerFileName": "Dockerfile",
+  "env": {
+    "PORT": "4000",
+    "MODEL_NAME": "Xenova/bge-reranker-base"
+  }
+}

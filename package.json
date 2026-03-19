@@ -1,0 +1,19 @@
+{
+  "name": "rag-reranker-service",
+  "version": "1.0.0",
+  "description": "Standalone Microservice for Cross-Encoder Re-Ranking using Transformers.js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.19.2",
+    "ioredis": "^5.10.0"
+  }
+}

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  reranker-service:
+    build: .
+    container_name: reranker-service
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - MODEL_NAME=Xenova/bge-reranker-base
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    volumes:
+      - ./cache:/app/.cache
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  redis:
+    image: redis:alpine
+    container_name: reranker-redis
+    restart: always
+    ports:
+      - "6379:6379"
